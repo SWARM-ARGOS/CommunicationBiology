@@ -5,12 +5,6 @@ Simulated ant-like foraging robots used in the following paper.
 
 Regulatory mechanism predates the evolution of self-organizing capacity in simulated ant-like robots. [bioRxiv](https://doi.org/10.1101/372391)
 
-IRC channel: [freenode](https://freenode.net) #googlebenchmark
-
-[Additional Tooling Documentation](docs/tools.md)
-
-[Assembly Testing Documentation](docs/AssemblyTests.md)
-
 
 ## Description
 ### Main files
