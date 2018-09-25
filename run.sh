@@ -4,10 +4,11 @@ rm exit.txt
 rm offspring_log.csv
 rm result_*
 rm SwarmInput_*
+rm output.csv
 
 python Initialization.py
 
-for i in {0..500}
+for i in {0..1000}
 do
 	echo $i
 	./Harsh_Mistress20.exe $i
