@@ -13,42 +13,23 @@ Regulatory mechanism predates the evolution of self-organizing capacity in simul
 * Evolution.py: This file reads the result data in each generation (result_i.csv) and evaluates the performance of the swarms (N swarms in total). Each swarm is given its relative fitness. The set of fitness is used to generate offspring (swarm) in the next generation. The fitter swarm produces more offspring. We used the roulette-wheel selection for the selection method.
 
 ### Script files
-* run.sh: ...
-* analysis.sh: ...
-* fitness.sh: ...
+* run.sh: This script is used for the entire run. First, by calling Initialization.py as follows, it generates the initial input file for Harsh_Mistress20.exe.
 
-```bash
-$ git clone https://github.com/google/benchmark.git
-# Benchmark requires Google Test as a dependency. Add the source tree as a subdirectory.
-$ git clone https://github.com/google/googletest.git benchmark/googletest
-$ mkdir build && cd build
-$ cmake -G <generator> [options] ../benchmark
-# Assuming a makefile generator was used
-$ make
-```
+  ```bash
+  $ python Initialization.py
+  ```
 
-Note that Google Benchmark requires Google Test to build and run the tests. This
-dependency can be provided two ways:
+  Then, it runs the main file and generates a next input file from the result.
 
-* Checkout the Google Test sources into `benchmark/googletest` as above.
-* Otherwise, if `-DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON` is specified during
-  configuration, the library will automatically download and build any required
-  dependencies.
+  ```bash
+  $ ./Harsh_Mistress20.exe $i
+  $ python Evolution.py SwarmInput_$i.csv
+  ```
 
-If you do not wish to build and run the tests, add `-DBENCHMARK_ENABLE_GTEST_TESTS=OFF`
-to `CMAKE_ARGS`.
+* analysis.sh & analysis.R: Those files generate the average values and their standard deviation of genes (average.csv) for the analysis. R-3.x.x is needed.
+* fitness.sh & fitness.R: Those files generate the average and maximum values of their performance (fitness.csv) for the analysis. R-3.x.x is needed.
 
-
-## Installation Guide
-
-For Ubuntu and Debian Based System
-
-First make sure you have git and cmake installed (If not please install them)
-
-```
-sudo apt-get install git cmake
-```
-
-Now, let's clone the repository and build it
-
-```
+### Program development environment
+* Harsh_Mistress20.exe: Microsoft Visual Studio Community 2017 (Version 15.2). For the visualization of simulations, OpenGL ([Freeglut 3.0.0](http://freeglut.sourceforge.net/index.php#download)) needs to be installed
+* Initilization.py & Evolution.py: Python 2.7.x is used. NumPy is needed.
+* run.sh, analysis.sh & fitness.sh: bash scripts. Cygwin is used for the run.
