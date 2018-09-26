@@ -1,0 +1,10 @@
+ARGOS,1
+trials,200
+draw,0
+robots,30
+foods,1
+food_mass,1000000000
+food_dis,200
+food_limit,999999999
+opposite,0
+p_density,0.4
